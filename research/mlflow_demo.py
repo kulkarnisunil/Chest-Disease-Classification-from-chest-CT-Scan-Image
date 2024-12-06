@@ -1,6 +1,7 @@
 import os
 import warnings
 import sys
+
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
@@ -9,16 +10,20 @@ from sklearn.linear_model import ElasticNet
 from urllib.parse import urlparse
 import mlflow
 import mlflow.sklearn
+
 import logging
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
+
+
+
+
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
-
 
 
 if __name__ == "__main__":
@@ -47,12 +52,14 @@ if __name__ == "__main__":
 
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
-
-    remote_server_uri = "https://dagshub.com/your_username/your_repository.mlflow"
+    
+    
+    # For remote server only (Dagshub)
+    remote_server_uri = "https://dagshub.com/sunilkulkarni603/mlflow.mlflow"
     mlflow.set_tracking_uri(remote_server_uri)
-
-    os.environ['MLFLOW_TRACKING_USERNAME'] = os.getenv('DAGSHUB_USER')
-    os.environ['MLFLOW_TRACKING_PASSWORD'] = os.getenv('DAGSHUB_TOKEN')
+    
+    os.environ['MLFLOW_TRACKING_USERNAME'] = os.getenv('MLFLOW_TRACKING_USERNAME') 
+    os.environ['MLFLOW_TRACKING_PASSWORD'] = os.getenv('MLFLOW_TRACKING_PASSWORD')
 
     with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
@@ -73,9 +80,17 @@ if __name__ == "__main__":
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
 
+
+
+
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
+        # Model registry does not work with file store
         if tracking_url_type_store != "file":
+            # Register the model
+            # There are other ways to use the Model Registry, which depends on the use case,
+            # please refer to the doc for more information:
+            # https://mlflow.org/docs/latest/model-registry.html#api-workflow
             mlflow.sklearn.log_model(
                 lr, "model", registered_model_name="ElasticnetWineModel")
         else:
