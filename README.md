@@ -23,5 +23,7 @@
 #dogshub
 
 export  MLFLOW_TRACKING_URI="....."
+
 export MLFLOW_TRACKING_USERNAME="....."
+
 export MLFLOW_TRACKING_PASSWORD="....."
