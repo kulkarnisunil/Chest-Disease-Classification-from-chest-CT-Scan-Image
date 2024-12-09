@@ -22,17 +22,6 @@
 
 #dogshub
 
-import dagshub
-dagshub.init(repo_owner='sunilkulkarni603', repo_name='ml_flow_exp_demo', mlflow=True)
-
-import mlflow
-with mlflow.start_run():
-  mlflow.log_param('parameter name', 'value')
-  mlflow.log_metric('metric name', 1)
-
-
-===> 
-MLFLOW_TRACKING_URI=https://dagshub.com/sunilkulkarni603/ml_flow_exp_demo.mlflow
-MLFLOW_TRACKING_USERNAME=sunilkulkarni603
-MLFLOW_TRACKING_PASSWORD=
-python script.py
+export  MLFLOW_TRACKING_URI="....."
+export MLFLOW_TRACKING_USERNAME="....."
+export MLFLOW_TRACKING_PASSWORD="....."
