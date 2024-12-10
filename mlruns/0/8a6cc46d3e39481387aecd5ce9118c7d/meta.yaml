@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/mlops/chest_dises/Chest-Disease-Classification-from-chest-CT-Scan-Image/mlruns/0/8a6cc46d3e39481387aecd5ce9118c7d/artifacts
+end_time: 1733726211178
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8a6cc46d3e39481387aecd5ce9118c7d
+run_name: sincere-lynx-28
+run_uuid: 8a6cc46d3e39481387aecd5ce9118c7d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733726201352
+status: 3
+tags: []
+user_id: Sunil Kulkarni

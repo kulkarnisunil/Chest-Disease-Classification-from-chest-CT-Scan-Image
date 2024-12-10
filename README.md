@@ -28,6 +28,9 @@ export MLFLOW_TRACKING_USERNAME="....."
 
 export MLFLOW_TRACKING_PASSWORD="....."
 
+pip install --upgrade tensorflow mlflow keras
+
+
 
 ## DVC cmd
 

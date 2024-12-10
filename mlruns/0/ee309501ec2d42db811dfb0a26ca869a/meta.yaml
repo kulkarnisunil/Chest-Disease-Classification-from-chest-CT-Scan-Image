@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/mlops/chest_dises/Chest-Disease-Classification-from-chest-CT-Scan-Image/mlruns/0/ee309501ec2d42db811dfb0a26ca869a/artifacts
+end_time: 1733725645841
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ee309501ec2d42db811dfb0a26ca869a
+run_name: treasured-grub-997
+run_uuid: ee309501ec2d42db811dfb0a26ca869a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733725644405
+status: 4
+tags: []
+user_id: Sunil Kulkarni
