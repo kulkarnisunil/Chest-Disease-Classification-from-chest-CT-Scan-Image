@@ -39,3 +39,12 @@ pip install --upgrade tensorflow mlflow keras
 2]dvc repro
 
 3]dvc dag
+
+
+## Setup Genkin Server With AWS Account
+
+1] create IAM user
+
+2]Create EC2 Machine
+
+3]create ECR
